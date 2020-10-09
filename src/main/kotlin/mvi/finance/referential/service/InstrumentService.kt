@@ -20,8 +20,17 @@ class InstrumentService(@Autowired val repository: InstrumentRepository) {
                                                                   "INSERT")
     }
 
-    fun getAll(): List<InstrumentDto> {
-        val allInstruments = repository.findAll()
+    fun getAllInstruments(): List<InstrumentDto> {
+        val allInstruments = repository.findAllByOrderByIdDesc()
         return allInstruments.stream().map { t -> InstrumentDto(t.isin, t.longName) }.collect(Collectors.toList())
+    }
+
+    fun getInstrument(id : Long): InstrumentDto {
+        val entity = repository.findById(id).orElseThrow()
+         return InstrumentDto(entity.isin, entity.longName)
+    }
+
+    fun deleteInstrument(id: Long) {
+        repository.deleteById(id)
     }
 }

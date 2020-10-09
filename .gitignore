@@ -34,3 +34,5 @@ out/
 .vscode/
 /.idea/
 /logs/accounts-service.log
+/logs/*.*
+/logs/**/*.*

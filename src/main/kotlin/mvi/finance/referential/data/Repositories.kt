@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface InstrumentRepository : JpaRepository<Instrument, Long>{
     fun findByIsin(isin : String) : Instrument
-    fun findAllByOrderByIdDesc() : Iterable<Instrument>
+    fun findAllByOrderByIdDesc() : Collection<Instrument>
 }
