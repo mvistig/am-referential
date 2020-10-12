@@ -1,1 +1,1 @@
-rootProject.name = "referential-root"
+rootProject.name = "referential-service"
